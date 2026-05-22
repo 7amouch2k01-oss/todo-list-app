@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>Todo List</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle lists">☰</button>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar__header">
+      <h2>Lists</h2>
+      <button id="new-list-btn" class="icon-btn" aria-label="New list" title="New list">+</button>
+    </div>
+    <ul id="lists-nav" class="lists-nav"></ul>
+    <div class="sidebar__footer">
+      <button id="stats-btn" class="btn-secondary">📊 Stats</button>
+      <button id="export-btn" class="btn-secondary" title="Export JSON (Ctrl+E)">⬇ Export</button>
+      <label class="btn-secondary" for="import-file">⬆ Import
+        <input id="import-file" type="file" accept="application/json" hidden />
+      </label>
+    </div>
+  </aside>
+
+  <main class="app">
+    <header class="app__header">
+      <div class="app__title-row">
+        <h1 id="list-title">My Tasks</h1>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Dark mode (Ctrl+D)">🌙</button>
+        </div>
+      </div>
+      <p class="app__subtitle">Stay focused. Get things done.</p>
+    </header>
+
+    <div class="search-row">
+      <input id="search-input" type="search" placeholder="🔍 Search tasks..." aria-label="Search" />
+      <select id="sort-select" aria-label="Sort by">
+        <option value="manual">Manual order</option>
+        <option value="due">Due date</option>
+        <option value="priority">Priority</option>
+        <option value="created">Created</option>
+      </select>
+    </div>
+
+    <form id="todo-form" class="todo-form" autocomplete="off">
+      <input id="todo-input" type="text" placeholder="What needs to be done? (try 'buy milk tomorrow')" maxlength="200" required />
+      <div class="todo-form__meta">
+        <select id="todo-priority" aria-label="Priority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input id="todo-due" type="date" aria-label="Due date" />
+        <select id="todo-recurring" aria-label="Recurring">
+          <option value="">No repeat</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+        <input id="todo-tags" type="text" placeholder="#tags" aria-label="Tags" />
+        <button type="submit">Add</button>
+      </div>
+    </form>
+
+    <nav class="filters" role="tablist">
+      <button class="filter-btn active" data-filter="all" role="tab">All <span class="count">0</span></button>
+      <button class="filter-btn" data-filter="active" role="tab">Active <span class="count">0</span></button>
+      <button class="filter-btn" data-filter="completed" role="tab">Completed <span class="count">0</span></button>
+    </nav>
+
+    <div id="bulk-bar" class="bulk-bar hidden">
+      <span id="bulk-count">0 selected</span>
+      <button id="bulk-complete" class="btn-secondary">Complete</button>
+      <button id="bulk-delete" class="btn-secondary danger">Delete</button>
+      <button id="bulk-cancel" class="btn-link">Cancel</button>
+    </div>
+
+    <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+    <footer class="app__footer">
+      <span id="todo-count">0 tasks left</span>
+      <button id="clear-completed" type="button" class="btn-link" title="Clear completed (Ctrl+Shift+C)">Clear completed</button>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite">
+    <span id="toast-msg"></span>
+    <button id="toast-action" class="btn-link">Undo</button>
+  </div>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="confetti-root" class="confetti-root" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
