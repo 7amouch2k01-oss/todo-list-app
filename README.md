@@ -1,83 +1,55 @@
 # Todo List App
 
-A clean, modern, fully-featured todo list built with vanilla HTML, CSS, and JavaScript. No frameworks, no build step, no dependencies. Installable as a PWA.
+## Overview
+
+This is a feature-rich Todo List application designed to help users manage their tasks efficiently. It supports multiple task lists, task prioritization, due dates, recurring tasks, subtasks, and various filtering and sorting options. The application also includes a dark/light theme toggle, search functionality, and data import/export capabilities.
 
 ## Features
 
-### Core
-- ✅ Add, complete, edit, and delete tasks
-- ✅ Persistent storage via `localStorage`
-- ✅ Fully responsive (mobile + desktop)
-- ✅ PWA — installable, works offline
+*   **Task Management**: Add, edit, and delete tasks.
+*   **Task Prioritization**: Assign high, medium, or low priority to tasks.
+*   **Due Dates & Recurring Tasks**: Set due dates and configure tasks to recur daily, weekly, or monthly.
+*   **Subtasks**: Break down larger tasks into smaller, manageable subtasks.
+*   **Multiple Lists**: Organize tasks into different lists.
+*   **Filtering & Sorting**: Filter tasks by active, completed, or all, and sort by due date, priority, or creation date.
+*   **Search Functionality**: Easily find tasks by keywords or tags.
+*   **Theme Toggle**: Switch between dark and light modes.
+*   **Local Storage**: Persist tasks and settings in local storage.
+*   **Data Import/Export**: Backup and restore task data.
+*   **Notifications**: Receive notifications for upcoming tasks.
+*   **Confetti Celebration**: Enjoy a confetti animation upon completing all tasks in a list.
+*   **Undo Functionality**: Undo recent task deletions.
 
-### Organization
-- 📋 **Multiple lists** — sidebar with separate projects (Work, Personal, etc.)
-- 🔍 **Filters** — All / Active / Completed with live counts
-- 🔎 **Search** — real-time fuzzy search across text and tags
-- ↕️ **Sort** — manual (drag), due date, priority, or created date
-- 🏷️ **Tags** — hashtag-style categorization
-- ☑️ **Bulk select** — shift-click for batch complete/delete
+## Technologies Used
 
-### Task Features
-- ✏️ **Inline editing** — double-click to rename
-- 📝 **Subtasks** — nested checklists with progress indicator
-- 📅 **Due dates** with overdue highlighting
-- 🧠 **Smart date parsing** — type "tomorrow", "friday", "in 3 days"
-- ⚡ **Priority levels** — Low / Medium / High
-- 🔁 **Recurring tasks** — daily / weekly / monthly auto-repeat
-- 📐 **Markdown** — `**bold**`, `*italic*`, `[links](url)`, `` `code` ``
-- 🔔 **Notifications** — browser reminders when tasks become due
+*   **HTML5**: For the basic structure of the application.
+*   **CSS3**: For styling and responsive design.
+*   **JavaScript**: For all interactive functionalities and logic.
+*   **Local Storage API**: For persistent data storage.
+*   **Notification API**: For task reminders.
 
-### UX & Polish
-- 🌙 **Dark mode** — persisted preference
-- 🎯 **Drag-and-drop reordering**
-- ↩️ **Undo toast** — 5-second window to undo deletes
-- 🎉 **Completion celebration** — confetti when clearing all active tasks
-- 🎬 **Smooth animations** — slide in/out transitions
-- 📊 **Statistics** — streak, completion rate, tasks per day
-- 💾 **Export / Import JSON** — backup and restore
+## Installation and Usage
 
-### Keyboard Shortcuts
-- `Enter` — add task / save edit
-- `Esc` — cancel edit / close modals / clear search
-- `Ctrl/Cmd + /` — focus search
-- `Ctrl/Cmd + N` — focus new task input
-- `Ctrl/Cmd + D` — toggle dark mode
-- `Ctrl/Cmd + Shift + C` — clear completed
-- `Ctrl/Cmd + E` — export JSON
-- `Shift + Click` — multi-select tasks
+To run this application locally:
 
-## Architecture
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/7amouch2k01-oss/todo-list-app.git
+    ```
+2.  **Navigate to the project directory**:
+    ```bash
+    cd todo-list-app
+    ```
+3.  **Open `index.html`**: Open the `index.html` file in your web browser. No server-side setup is required.
 
-```
-todo-list-app/
-├── index.html           # Semantic structure + sidebar layout
-├── style.css            # Theming, responsive layout, animations
-├── app.js               # State, persistence, rendering, all features
-├── manifest.webmanifest # PWA manifest
-├── sw.js                # Service worker for offline support
-└── README.md
-```
+## Contributing
 
-State lives in a single object, persisted to `localStorage` on every mutation. A single `render()` function rebuilds the visible DOM. Event delegation keeps listeners minimal even with hundreds of tasks.
-
-## Running Locally
-
-```bash
-# Any static server works; here's a one-liner with Python:
-python3 -m http.server 8000
-# Then open http://localhost:8000
-```
-
-PWA features (offline, install) require serving over `http://localhost` or `https://`. Opening `index.html` via `file://` works for everything except the service worker.
-
-## Roadmap
-
-- [ ] Cloud sync (optional backend)
-- [ ] Collaborative shared lists
-- [ ] Calendar view
-- [ ] Mobile app wrapper
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you find any bugs or have suggestions for improvements.
 
 ## License
 
-MIT
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+For any questions or feedback, please contact [7amouch2k01-oss](https://github.com/7amouch2k01-oss).
